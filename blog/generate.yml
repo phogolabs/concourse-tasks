@@ -1,0 +1,21 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: phogo/blog, tag: 'latest'}
+
+inputs:
+- name: concourse-tasks
+- name: blog-source
+
+outputs:
+- name: blog-content
+
+params:
+ BLOG_CONFIG:
+ THEME_NAME:
+ BASE_URL:
+
+run:
+  path: concourse-tasks/blog/generate.bash
