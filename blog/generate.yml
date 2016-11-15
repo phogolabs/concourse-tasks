@@ -10,7 +10,7 @@ inputs:
 - name: blog-source
 
 outputs:
-- name: blog-content
+- name: blog-website
 
 params:
  BLOG_CONFIG:

@@ -2,6 +2,8 @@
 
 [ -z "$DEBUG" ] || set -x
 
+DESTINATION="$(cd blog-website && pwd)"
+
 main() {
   generate_blog
   git_configure
@@ -14,14 +16,14 @@ git_configure() {
 }
 
 git_commit_changes() {
-  cd blog-content
+  cd "$DESTINATION"
   git init
   git add .
   git commit -m "Generated blog content for $BASE_URL"
 }
 
 generate_blog() {
-  hugo --source blog-source --destination blog-content --config "$BLOG_CONFIG" --theme "$THEME_NAME" --baseURL "$BASE_URL"
+  hugo --source blog-source --destination "$DESTINATION" --config "$BLOG_CONFIG" --theme "$THEME_NAME" --baseURL "$BASE_URL"
 }
 
 main
