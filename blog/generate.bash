@@ -3,8 +3,8 @@
 [ -z "$DEBUG" ] || set -x
 
 main() {
+  generate_blog
   git_configure
-  git_init_destination
   git_commit_changes
 }
 
@@ -13,12 +13,9 @@ git_configure() {
   git config --global user.name "Concourse"
 }
 
-git_init_destination() {
+git_commit_changes() {
   cd blog-content
   git init
-}
-
-git_commit_changes() {
   git add .
   git commit -m "Generated blog content for $BASE_URL"
 }
