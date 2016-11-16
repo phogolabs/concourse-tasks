@@ -19,7 +19,7 @@ git_commit_changes() {
   cd "$DESTINATION"
   git init
   git add .
-  git commit -m "Generated blog content for $BASE_URL"
+  git commit -m "Publishing new version of the blog"
 }
 
 generate_blog() {
