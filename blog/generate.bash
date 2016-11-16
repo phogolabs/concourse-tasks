@@ -11,6 +11,7 @@ main() {
 }
 
 git_configure() {
+  git config core.whitespace fix
   git config --global user.email "nobody@concourse.ci"
   git config --global user.name "Concourse"
 }
