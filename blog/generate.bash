@@ -6,6 +6,7 @@ DESTINATION="$(cd blog-website && pwd)"
 
 main() {
   generate_blog
+  cleanup_trailing_whitespaces
   git_configure
   git_commit_changes
 }
@@ -25,6 +26,10 @@ git_commit_changes() {
 
 generate_blog() {
   hugo --source blog-source --destination "$DESTINATION" --config "$BLOG_CONFIG" --theme "$THEME_NAME" --baseURL "$BASE_URL"
+}
+
+cleanup_trailing_whitespaces() {
+ find . -type f -print0 | xargs -0 perl -pi -e 's/ +$//'
 }
 
 main
