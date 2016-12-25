@@ -11,7 +11,6 @@ main() {
 }
 
 git_configure() {
-  git config --global apply.whitespace nowarn
   git config --global user.email "nobody@concourse.ci"
   git config --global user.name "Concourse"
 }
