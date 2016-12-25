@@ -1,0 +1,17 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: phogo/golang, tag: 'latest'}
+
+inputs:
+- name: concourse-tasks
+- name: application
+
+params:
+ HEROKU_SSH_KEY:
+ HEROKU_APP_NAME:
+
+run:
+  path: concourse-tasks/heroku/deploy.bash
