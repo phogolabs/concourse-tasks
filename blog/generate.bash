@@ -31,7 +31,7 @@ commit_sha() {
 }
 
 prepare_output() {
-  cp -aR blog-content/* blog-website
+  cp -av blog-content/* blog-website
 }
 
 main
