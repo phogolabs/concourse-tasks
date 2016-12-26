@@ -8,6 +8,9 @@ image_resource:
 inputs:
 - name: concourse-tasks
 - name: blog-source
+- name: blog-content
+
+outputs:
 - name: blog-website
 
 params:

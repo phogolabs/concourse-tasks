@@ -2,12 +2,13 @@
 
 [ -z "$DEBUG" ] || set -x
 
-DESTINATION="$(cd blog-website && pwd)"
+DESTINATION="$(cd blog-content && pwd)"
 
 main() {
   generate_blog
   git_configure
   git_commit_changes
+  prepare_output
 }
 
 git_configure() {
@@ -27,6 +28,10 @@ generate_blog() {
 
 commit_sha() {
   (cd blog-source && git rev-parse HEAD)
+}
+
+prepare_output() {
+  cp -aR blog-content/* blog-website
 }
 
 main
