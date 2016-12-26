@@ -12,8 +12,8 @@ main() {
 }
 
 git_configure() {
-  git config --global user.email "nobody@concourse.ci"
-  git config --global user.name "Concourse"
+  git config --global user.email "$GIT_EMAIL"
+  git config --global user.name "$GIT_USERNAME"
 }
 
 git_commit_changes() {

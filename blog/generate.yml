@@ -14,6 +14,8 @@ outputs:
 - name: blog-website
 
 params:
+ GIT_USERNAME:
+ GIT_EMAIL:
  BLOG_CONFIG:
  THEME_NAME:
  BASE_URL:
