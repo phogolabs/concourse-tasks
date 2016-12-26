@@ -10,9 +10,6 @@ inputs:
 - name: blog-source
 - name: blog-website
 
-outputs:
-- name: blog-website
-
 params:
  BLOG_CONFIG:
  THEME_NAME:
