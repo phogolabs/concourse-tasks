@@ -10,7 +10,7 @@ inputs:
 - name: blog-source
 - name: blog-website
 
-output:
+outputs:
 - name: blog-website
 
 params:
