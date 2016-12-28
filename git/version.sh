@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -xe
 
 VERSION_DIR="$(cd version && pwd)"
 
