@@ -2,7 +2,7 @@
 
 VERSION_DIR="$(cd version && pwd)"
 
-[ -z "$PRODUCT_NAME" ] && echo "$PRODUCT_NAME" > "$VERSION_DIR/name"
+[ -n "$PRODUCT_NAME" ] && echo "$PRODUCT_NAME" > "$VERSION_DIR/name"
 
 # shellcheck disable=2164
 cd repository
