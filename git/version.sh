@@ -2,10 +2,13 @@
 
 VERSION_DIR="$(cd version && pwd)"
 
-[ -n "$PRODUCT_NAME" ] && echo "$PRODUCT_NAME" > "$VERSION_DIR/name"
-
 # shellcheck disable=2164
 cd repository
 
-git tag --list 'v*' --contains HEAD | sed -n 's/^v//p' > "$VERSION_DIR/number"
-git rev-parse --short HEAD > "$VERSION_DIR/hash"
+REPO_VERSION=$(git tag --list 'v*' --contains HEAD | sed -n 's/^v//p')
+REPO_HASH=$(git rev-parse --short HEAD)
+
+echo "$REPO_VERSION" > "$VERSION_DIR/number"
+echo "$REPO_HASH" > "$VERSION_DIR/hash"
+
+[ -n "$PRODUCT_NAME" ] && echo "$PRODUCT_NAME $REPO_VERSION" > "$VERSION_DIR/name"
