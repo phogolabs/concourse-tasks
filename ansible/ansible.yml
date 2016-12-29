@@ -10,7 +10,6 @@ inputs:
 - name: ansible-playbooks
 
 params:
- ANSIBLE_VAULT_PASS:
  ANSIBLE_PLAYBOOK_DIR:
  ANSIBLE_PLAYBOOK:
  ANSIBLE_TAG:
