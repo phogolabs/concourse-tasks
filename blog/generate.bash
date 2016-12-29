@@ -27,7 +27,7 @@ generate_blog() {
 }
 
 commit_sha() {
-  (cd blog-source && git rev-parse HEAD)
+  (cd blog-source && git rev-parse HEAD) || true
 }
 
 prepare_output() {
