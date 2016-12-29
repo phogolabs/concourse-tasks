@@ -19,7 +19,7 @@ git_configure() {
 git_commit_changes() {
   local commit_message
   commit_message="Publish a new blog post from $(commit_sha)"
-  (cd "$DESTINATION" && git add . && git commit --no-verify -m "$commit_message")
+  (cd "$DESTINATION" && git add . && git commit --no-verify -m "$commit_message") || true
 }
 
 generate_blog() {
@@ -27,7 +27,7 @@ generate_blog() {
 }
 
 commit_sha() {
-  (cd blog-source && git rev-parse HEAD) || true
+  (cd blog-source && git rev-parse HEAD)
 }
 
 prepare_output() {
