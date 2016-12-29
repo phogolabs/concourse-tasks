@@ -1,11 +1,15 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 
 main() {
-  run_plabook "$(load_private_key)"
+  local ssh_key_path
+  ssh_key_path="$(load_private_key)"
+  set -x
+  run_plabook "$ssh_key_path"
 }
 
 load_private_key() {
-  local private_key_path=$TMPDIR/ssh-key
+  local private_key_path
+  private_key_path="$(mktemp)"
 
   chmod 0600 "$private_key_path"
   echo "$SSH_PRIVATE_KEY" > "$private_key_path"
