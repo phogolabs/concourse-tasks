@@ -1,0 +1,19 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: phogo/ci, tag: 'latest'}
+
+inputs:
+- name: concourse-tasks
+- name: ansible-playbooks
+
+params:
+ ANSIBLE_VAULT_PASS:
+ ANSIBLE_PLAYBOOK:
+ ANSIBLE_TAG:
+ SSH_PRIVATE_KEY:
+
+run:
+  path: concourse-tasks/ansible/ansible.bash
