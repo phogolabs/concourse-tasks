@@ -10,6 +10,7 @@ inputs:
 - name: ansible-playbooks
 
 params:
+ ANSIBLE_HOST:
  ANSIBLE_PLAYBOOK_DIR:
  ANSIBLE_PLAYBOOK:
  ANSIBLE_TAG:
