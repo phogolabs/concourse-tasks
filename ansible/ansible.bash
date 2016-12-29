@@ -23,7 +23,11 @@ run_plabook() {
   # shellcheck disable=2164
   cd ansible-playbooks/"$ANSIBLE_PLAYBOOK_DIR"
 
-  ansible-playbook "$ANSIBLE_PLAYBOOK" -t "$ANSIBLE_TAG" -l all  --private-key="$ansible_private_key_path"
+  if [ -n "$ANSIBLE_TAG" ]; then
+    ansible-playbook "$ANSIBLE_PLAYBOOK" -l all -t "$ANSIBLE_TAG" --private-key="$ansible_private_key_path"
+  else
+    ansible-playbook "$ANSIBLE_PLAYBOOK" -l all --private-key="$ansible_private_key_path"
+  fi
 }
 
 main
