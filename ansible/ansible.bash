@@ -1,7 +1,6 @@
 #!/bin/bash -xe
 
 main() {
-  load_pubkey
   run_plabook "$(load_private_key)"
 }
 
