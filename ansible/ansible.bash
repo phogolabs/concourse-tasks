@@ -24,9 +24,9 @@ run_plabook() {
   cd ansible-playbooks/"$ANSIBLE_PLAYBOOK_DIR"
 
   if [ -n "$ANSIBLE_TAG" ]; then
-    ansible-playbook "$ANSIBLE_PLAYBOOK" -i "${ANSIBLE_HOST}", -l all -t "$ANSIBLE_TAG" --private-key="$ansible_private_key_path"
+    ansible-playbook "$ANSIBLE_PLAYBOOK" -l all -t "$ANSIBLE_TAG" --private-key="$ansible_private_key_path"
   else
-    ansible-playbook "$ANSIBLE_PLAYBOOK" -i "${ANSIBLE_HOST}", -l all --private-key="$ansible_private_key_path"
+    ansible-playbook "$ANSIBLE_PLAYBOOK" -l all --private-key="$ansible_private_key_path"
   fi
 }
 
