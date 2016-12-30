@@ -1,10 +1,20 @@
 #!/bin/bash -e
 
 main() {
+  disable_strict_host_checking
   local ssh_key_path
   ssh_key_path="$(load_private_key)"
   set -x
   run_plabook "$ssh_key_path"
+}
+
+disable_strict_host_checking() {
+  mkdir -p ~/.ssh
+  cat > ~/.ssh/config <<EOF
+StrictHostKeyChecking no
+LogLevel quiet
+EOF
+  chmod 0600 ~/.ssh/config
 }
 
 load_private_key() {
