@@ -4,7 +4,6 @@ main() {
   disable_strict_host_checking
   local ssh_key_path
   ssh_key_path="$(load_private_key)"
-  set -x
   run_plabook "$ssh_key_path"
 }
 
