@@ -9,11 +9,11 @@ main() {
 }
 
 minify_css() {
-  [ -z "$DIRECTORY_CSS" ] || find "web-application/$DIRECTORY_CSS" -name "*.css" -exec yuicompressor {} -v --type css --output={} \;
+  [ -z "$DIRECTORY_CSS" ] || find "web-application/$DIRECTORY_CSS" -name "*.css" -exec yui-compressor {} -v --type css --output={} \;
 }
 
 minify_js() {
-  [ -z "$DIRECTORY_JS" ] || find "web-application/$DIRECTORY_JS" -name "*.js" -exec yuicompressor {} -v --type js --output={} \;
+  [ -z "$DIRECTORY_JS" ] || find "web-application/$DIRECTORY_JS" -name "*.js" -exec yui-compressor {} -v --type js --output={} \;
 }
 
 prepare_output() {
