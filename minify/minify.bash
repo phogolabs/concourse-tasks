@@ -9,15 +9,17 @@ main() {
 }
 
 minify_css() {
+  echo "Minifying CSS files"
   [ -z "$DIRECTORY_CSS" ] || find "web-application/$DIRECTORY_CSS" -name "*.css" -exec yui-compressor {} -v --type css --output={} \;
 }
 
 minify_js() {
+  echo "Minifying JS files"
   [ -z "$DIRECTORY_JS" ] || find "web-application/$DIRECTORY_JS" -name "*.js" -exec yui-compressor {} -v --type js --output={} \;
 }
 
 prepare_output() {
-  cp -rv web-application/. web-application-min
+  cp -r web-application/. web-application-min
 }
 
 main
